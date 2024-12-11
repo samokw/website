@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Lora, Roboto } from "next/font/google";
+import { Lora } from "next/font/google";
 import "./globals.css";
 import Navbar from "./component/navbar";
 

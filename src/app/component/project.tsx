@@ -1,4 +1,5 @@
 import { ProjectItem } from "@/types/project";
+import Image from "next/image"
 
 export default function Project({ project }: { project: ProjectItem }) {
     return (
@@ -10,7 +11,8 @@ export default function Project({ project }: { project: ProjectItem }) {
             </div>
             {project.image && (
                 <div className="flex justify-center">
-                    <img
+
+                    <Image
                     className="w-full max-w-md rounded-md my-4"
                     src={project.image}
                     alt={project.name || "Project Image"}

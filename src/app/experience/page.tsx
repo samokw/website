@@ -1,6 +1,7 @@
 import {ProjectItem} from "@/types/project";
 import Project from "../component/project";
-let projectList: ProjectItem[] = [
+import Image from "next/image"
+const projectList: ProjectItem[] = [
     {
         name: "FixtureShere",
         image: "/prem.png",
@@ -73,7 +74,7 @@ export default function Experience() {
                     {workExperienceList.map((experience, index) => (
                         <li key={index} className="py-4 flex flex-col items-center">
                             {experience.image && (
-                                <img
+                                <Image
                                     className="size-36 rounded-full mb-4"
                                     src={experience.image}
                                     alt={`${experience.company} logo`}
