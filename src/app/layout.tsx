@@ -1,15 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Lora, Roboto } from "next/font/google";
 import "./globals.css";
+import Navbar from "./component/navbar";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const lora = Lora ({
+  subsets: ['latin'],
+  weight: ['700'],
 });
 
 export const metadata: Metadata = {
@@ -23,11 +19,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="en" className={`${lora.className} antialiased`}>
+      <body className=" antialiased max-w-xl mx-4 mt-4 lg:mx-auto">
+        <div className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
+          <div className="flex justify-end">
+          <Navbar/>
+          </div>
         {children}
+        </div>
       </body>
     </html>
   );
