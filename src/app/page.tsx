@@ -9,6 +9,7 @@ export default function Home() {
     alt="Sunset"
     width={600}
     height={600}
+    placeholder="blur"
     />
     <p className="mb-4 lowercase">{"Hello, my name is Samuel Okwusiuno, and I am a Software Engineering student at the University of Guelph, graduating in April 2026. I specialize in Statistics and have a strong interest in leveraging cloud infrastructure to build innovative and efficient applications."}</p>
     <p className="mb-4 lowercase">{"You can reach me at"} <a className="underline" href="mailto:okwusiunosamuel@gmail.com">okwusiunosamuel@gmail.com</a></p>
