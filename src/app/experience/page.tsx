@@ -87,7 +87,7 @@ export default function Experience() {
                                 {experience.company} – {experience.location}
                             </p>
                             <p className="text-gray-500 text-sm mb-4">{experience.date}</p>
-                            <ul className="list-disc list-inside text-gray-600 dark:text-gray-400 text-sm">
+                            <ul className="list-disc list-inside text-gray-600 dark:text-gray-100 text-sm">
                                 {experience.responsibilities.map((item, i) => (
                                     <li key={i}>{item}</li>
                                 ))}
