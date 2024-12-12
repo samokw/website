@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Lora } from "next/font/google";
 import "./globals.css";
 import Navbar from "./component/navbar";
+import { Analytics } from "@vercel/analytics/react"
 
 const lora = Lora ({
   subsets: ['latin'],
@@ -25,6 +26,7 @@ export default function RootLayout({
           <Navbar/>
           </div>
         {children}
+        <Analytics/>
         </div>
       </body>
     </html>
