@@ -19,10 +19,10 @@ export default function Project({ project }: { project: ProjectItem }) {
                 />
                 </div>
             )}
-            <p className="text-gray-700 dark:text-gray-400 text-sm mb-2">
+            <p className="text-gray-700 dark:text-gray-100 text-sm mb-2">
                 {project.technology}
             </p>
-            <ul className="list-disc list-inside text-gray-600 dark:text-gray-400 text-sm mb-4">
+            <ul className="list-disc list-inside text-gray-600 dark:text-gray-100 text-sm mb-4">
                 {project.description.map((item, index) => (
                     <li key={index}>{item}</li>
                 ))}
