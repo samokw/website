@@ -23,7 +23,7 @@ export default function Navbar (){
               return name === "resume" ? (
                 <a
                   key={path}
-                  href="/Sam_Software_Resume.pdf"
+                  href="/Samuel_Software_Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex align-middle relative py-1 px-2 m-1"
