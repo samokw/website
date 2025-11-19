@@ -1,6 +1,6 @@
 import {ProjectItem} from "@/types/project";
 import Project from "../component/project";
-import Image from "next/image"
+
 const projectList: ProjectItem[] = [
     {
         name: "FixtureShere",
@@ -60,51 +60,38 @@ export default function Experience() {
                 "Developed interactive coding challenges and age-appropriate analogies, enhancing students’ understanding of Object-Oriented Programming and memory allocation.",
                 "Delivered structured courses in programming languages such as C, Python, Java, JavaScript, and HTML/CSS.",
             ],
-            image: "/zebra.webp", // Include the path to the image
+            image: "/zebra.webp",
         },
-        // Add more work experiences here if needed
     ];
 
     return (
-        <section className="max-w-3xl mx-auto p-4">
-            {/* Work Experience Section */}
-            <div className="flex flex-col items-center">
-                <h1 className="text-2xl font-bold mb-6">work experience</h1>
-                <ul className="space-y-6">
-                    {workExperienceList.map((experience, index) => (
-                        <li key={index} className="py-4 flex flex-col items-center">
-                            {experience.image && (
-                                <Image
-                                    className="size-36 rounded-full mb-4"
-                                    src={experience.image}
-                                    alt={`${experience.company} logo`}
-                                />
-                            )}
-                            <h2 className="text-xl font-semibold dark:text-gray-100">
-                                {experience.title}
-                            </h2>
-                            <p className="text-gray-400 text-sm mb-2">
-                                {experience.company} – {experience.location}
-                            </p>
-                            <p className="text-gray-500 text-sm mb-4">{experience.date}</p>
-                            <ul className="list-disc list-inside text-gray-600 dark:text-gray-100 text-sm">
-                                {experience.responsibilities.map((item, i) => (
-                                    <li key={i}>{item}</li>
-                                ))}
-                            </ul>
-                        </li>
-                    ))}
-                </ul>
+        <section>
+            <h1 className="font-medium text-2xl mb-8 tracking-tighter">work experience</h1>
+            <div className="mb-12">
+                {workExperienceList.map((experience, index) => (
+                    <div key={index} className="flex flex-col gap-2 mb-8">
+                        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline">
+                            <h2 className="text-lg font-medium">{experience.title}</h2>
+                            <span className="text-sm text-neutral-500 dark:text-neutral-400 tabular-nums">{experience.date}</span>
+                        </div>
+                        <p className="text-neutral-600 dark:text-neutral-300 text-sm mb-2">
+                            {experience.company} • {experience.location}
+                        </p>
+                        <ul className="list-disc list-outside ml-4 text-neutral-600 dark:text-neutral-300 text-sm space-y-1">
+                            {experience.responsibilities.map((item, i) => (
+                                <li key={i}>{item}</li>
+                            ))}
+                        </ul>
+                    </div>
+                ))}
             </div>
-            <hr className="h-px my-8 bg-gray-700 border-0 dark:bg-gray-200"/>
-            <div className="flex flex-col items-center mt-10">
-                <h2 className="text-2xl font-semibold mb-6">projects</h2>
-                <ul className="space-y-6">
-                    {projectList.map((project, index) => (
-                        <Project key={index} project={project} />
-                    ))}
-                </ul>
-            </div>
+
+            <h1 className="font-medium text-2xl mb-8 tracking-tighter">projects</h1>
+            <ul className="flex flex-col space-y-8">
+                {projectList.map((project, index) => (
+                    <Project key={index} project={project} />
+                ))}
+            </ul>
         </section>
     );
 }

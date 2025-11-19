@@ -1,44 +1,29 @@
 import { ProjectItem } from "@/types/project";
-import Image from "next/image"
 
 export default function Project({ project }: { project: ProjectItem }) {
     return (
-        <li className="py-4">
-            <div className="flex justify-center">
-            <h2 className="text-xl font-semibold dark:text-gray-100 underline lowercase">
-                {project.name}
-            </h2>
+        <li className="group mb-8">
+            <div className="flex flex-col">
+                <div className="flex justify-between items-baseline mb-2">
+                    <h3 className="text-lg font-medium group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                        {project.link ? (
+                            <a href={project.link} target="_blank" rel="noopener noreferrer">
+                                {project.name}
+                            </a>
+                        ) : (
+                            project.name
+                        )}
+                    </h3>
+                </div>
+                <p className="text-sm text-neutral-500 dark:text-neutral-400 mb-3 font-mono">
+                    {project.technology}
+                </p>
+                <ul className="list-disc list-outside ml-4 text-neutral-600 dark:text-neutral-300 text-sm space-y-1 mb-4">
+                    {project.description.map((item, index) => (
+                        <li key={index}>{item}</li>
+                    ))}
+                </ul>
             </div>
-            {project.image && (
-                <div className="flex justify-center">
-
-                    <Image
-                    className="w-full max-w-md rounded-md my-4"
-                    src={project.image}
-                    alt={project.name || "Project Image"}
-                />
-                </div>
-            )}
-            <p className="text-gray-700 dark:text-gray-100 text-sm mb-2">
-                {project.technology}
-            </p>
-            <ul className="list-disc list-inside text-gray-600 dark:text-gray-100 text-sm mb-4">
-                {project.description.map((item, index) => (
-                    <li key={index}>{item}</li>
-                ))}
-            </ul>
-            {project.link && (
-                <div className="flex justify-center">
-                <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-500 dark:text-blue-300 hover:underline lowercase"
-                >
-                    View Project
-                </a>
-                </div>
-            )}
         </li>
     );
 }

@@ -4,21 +4,33 @@
 
 html {
   font-family: inherit;
+  scroll-behavior: smooth;
 }
 body {
   font-family: inherit;
 }
+
+::selection {
+  background-color: #e0e0e0;
+  color: #000;
+}
+
+@media (prefers-color-scheme: dark) {
+  ::selection {
+    background-color: #333;
+    color: #fff;
+  }
+}
+
 :root {
-  --background: #f2f2f2; /* Light gray for a clean background */
-  --foreground: #202020; /* Dark gray for high contrast text */
-  --accent: #3366cc; /* Deep blue for links or buttons with good contrast */
+  --background: #ffffff;
+  --foreground: #171717;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #121212; /* Dark gray for background in dark mode */
-    --foreground: #e5e5e5; /* Light gray for text in dark mode */
-    --accent: #6699ff; /* Softer blue for dark mode links/buttons */
+    --background: #0a0a0a;
+    --foreground: #ededed;
   }
 }
 

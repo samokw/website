@@ -20,13 +20,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${lora.className} antialiased`}>
-      <body className=" antialiased max-w-xl mx-4 mt-4 lg:mx-auto">
-        <div className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
-          <div className="flex justify-end">
+      <body className="antialiased text-slate-900 dark:text-slate-100 bg-white dark:bg-slate-950">
+        <div className="flex flex-col md:flex-row min-h-screen">
           <Navbar/>
-          </div>
-        {children}
-        <Analytics/>
+          <main className="flex-auto min-w-0 py-8 md:py-20 px-6 md:px-12">
+            <div className="max-w-3xl">
+              {children}
+              <Analytics/>
+            </div>
+          </main>
         </div>
       </body>
     </html>
