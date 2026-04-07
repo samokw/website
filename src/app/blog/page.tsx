@@ -24,23 +24,16 @@ export default function BlogIndexPage() {
   return (
     <div className="mx-auto max-w-2xl">
     <section className="pb-16">
-      <h1 className="font-display mb-2 text-2xl font-semibold tracking-[-0.02em] text-[var(--foreground)]">
+      <h1 className="font-display mb-8 text-2xl font-semibold tracking-[-0.02em] text-[var(--foreground)]">
         blog
       </h1>
-      <p className="mb-10 text-[0.95rem] text-[var(--muted)]">
-        Posts live in{" "}
-        <code className="rounded bg-[var(--border)]/40 px-1 py-0.5 text-[0.85rem]">
-          src/content/blog
-        </code>{" "}
-        as Markdown.
-      </p>
 
       {posts.length === 0 ? (
-        <p className="text-[0.95rem] text-[var(--muted)]">No posts yet.</p>
+        <p className="text-[0.95rem] text-[var(--muted)]">Nothing here yet — check back soon.</p>
       ) : (
-        <ul className="space-y-6">
+        <ul className="divide-y divide-[var(--border)]">
           {posts.map((post) => (
-            <li key={post.slug}>
+            <li key={post.slug} className="py-6 first:pt-0 last:pb-0">
               <Link
                 href={`/blog/${post.slug}`}
                 className="group block font-display text-lg font-semibold text-[var(--foreground)] transition-colors hover:text-[var(--link)]"
@@ -62,14 +55,14 @@ export default function BlogIndexPage() {
         </ul>
       )}
 
-      <p className="mt-14 text-[0.9rem] text-[var(--muted)]">
+      <div className="mt-14 border-t border-[var(--border)] pt-6">
         <Link
           href="/"
-          className="underline decoration-[var(--link-underline)] underline-offset-[3px] transition-colors hover:text-[var(--link)]"
+          className="text-[0.9rem] text-[var(--muted)] underline decoration-[var(--link-underline)] underline-offset-[3px] transition-colors hover:text-[var(--link)]"
         >
           ← home
         </Link>
-      </p>
+      </div>
     </section>
     </div>
   );

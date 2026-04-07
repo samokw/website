@@ -46,6 +46,15 @@ export default async function BlogPostPage({ params }: Props) {
 
   const articleHeader = (
     <>
+      <p className="mb-8 text-[0.9rem] text-[var(--muted)] lowercase">
+        <Link
+          href="/blog"
+          className="transition-colors hover:text-[var(--link)]"
+        >
+          &lt; back
+        </Link>
+      </p>
+
       <header className="mb-8">
         <h1 className="font-display text-[1.65rem] font-semibold leading-[1.15] tracking-[-0.02em] text-[var(--foreground)] lowercase md:text-[1.85rem]">
           {post.title}
@@ -54,13 +63,13 @@ export default async function BlogPostPage({ params }: Props) {
           <span>{site.name}</span>
           {post.date ? (
             <>
-              <span className="mx-2 text-[var(--border)]" aria-hidden>
+              <span className="mx-2 text-[var(--muted)]/50" aria-hidden>
                 ·
               </span>
               <time dateTime={post.date}>{formatDateLong(post.date)}</time>
             </>
           ) : null}
-          <span className="mx-2 text-[var(--border)]" aria-hidden>
+          <span className="mx-2 text-[var(--muted)]/50" aria-hidden>
             ·
           </span>
           <span>{minutes} min read</span>
@@ -86,15 +95,6 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <article className="pb-16">
-      <p className="mb-8 text-[0.9rem] text-[var(--muted)] lowercase md:mx-auto md:max-w-prose">
-        <Link
-          href="/blog"
-          className="transition-colors hover:text-[var(--link)]"
-        >
-          &lt; back
-        </Link>
-      </p>
-
       {hasToc ? (
         <div className="md:grid md:grid-cols-[1fr_auto_1fr] md:items-start md:gap-x-8 lg:gap-x-12 xl:gap-x-20">
           <aside className="sticky top-28 hidden w-max max-w-[9.5rem] justify-self-start self-start md:block lg:max-w-[10rem]">

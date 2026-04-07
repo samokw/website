@@ -10,7 +10,7 @@ export const site: SiteContent = {
   hero: {
     greeting: "hi, i'm samuel",
     lines: [
-      "I specialize in Statistics and have a strong interest in leveraging cloud infrastructure to build innovative and efficient applications.",
+      "i’m interested in building innovative and efficient applications, with a strong interest in production engineering and cloud infrastructure. i enjoy thinking about how to make systems reliable, scalable, and practical. i’m also a big chelsea fc fan, and i’m always open to working with others on exciting projects.",
     ],
     portrait: {
       src: "/IMG_7316.jpeg",
@@ -29,6 +29,33 @@ export const site: SiteContent = {
   ],
   previously: [],
   projects: [
+    {
+      name: "APEX – Accessibility Scanner with XRPL Escrow",
+      url: "https://github.com/samokw/apex",
+      summary:
+        "Won $1.5k+ in prizes at NSBE Hacks 2026. Full-stack WCAG/AODA compliance scanner with XRPL escrow payments.",
+      technology:
+        "Next.js, SQLite, Prisma, Playwright, axe-core, XRPL",
+      description: [
+        "Won over $1.5k in prizes, including 2nd place in the Ripple XRP Challenge and 3rd place in the BFN Venture Challenge at NSBE Hacks 2026.",
+        "Built a full-stack accessibility scanning tool that helps teams test websites for WCAG and AODA compliance.",
+        "Automated 36+ accessibility checks using Playwright and axe-core, with a scoring system to rate compliance.",
+        "Added an XRPL escrow flow for scan payments, with automatic payout on success and refunds on timeout.",
+        "Developed the app using Next.js, SQLite, and Prisma, with features to help automate accessibility fixes.",
+      ],
+    },
+    {
+      name: "Student Web Project Gallery",
+      url: "https://github.com/SammyMcNab/ClassFolio",
+      summary:
+        "Serverless platform where students upload and publish web projects to public links.",
+      technology:
+        "AWS Lambda, API Gateway, DynamoDB, S3, Python, React",
+      description: [
+        "Built and deployed a serverless web platform on AWS where students can upload and publish web projects to their own public links. Supported zip uploads, automatic file extraction, analytics script injection, and secure S3 uploads using presigned URLs.",
+        "Created an event-driven backend with 5 Lambda functions to handle login, project management, deployment, and basic analytics. Used DynamoDB and S3 to keep the system scalable and low-cost.",
+      ],
+    },
     {
       name: "FixtureShere",
       url: "https://github.com/samokw/Premier-League-Dashboard",
@@ -83,6 +110,17 @@ export const site: SiteContent = {
   ],
   writing: [],
   workExperience: [
+    {
+      title: "Undergraduate Researcher (Course Credit)",
+      company: "University of Guelph, Student Mental Health Study",
+      location: "Guelph, ON",
+      date: "Jan 2025 – Apr 2025",
+      responsibilities: [
+        "Co-authored a peer-reviewed conference paper on burnout among Canadian undergraduate students using latent profile analysis.",
+        "Analyzed data from over 1,000 survey responses and helped develop 3 recommendations to improve mental health support in computer science programs.",
+        "Presented findings to 4 faculty members and contributed to ongoing research on undergraduate burnout and student wellbeing.",
+      ],
+    },
     {
       title: "Coding Instructor",
       company: "Zebra Robotics",

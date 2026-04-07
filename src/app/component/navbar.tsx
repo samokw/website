@@ -28,7 +28,7 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="sticky top-0 z-10 border-b border-[var(--border)] bg-[var(--background)]">
+    <header className="sticky top-0 z-10 border-b border-[var(--border)] bg-[var(--background)]/90 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl flex-col gap-3 px-6 py-4 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6 md:px-12">
         <Link
           href="/"

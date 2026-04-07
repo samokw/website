@@ -18,7 +18,7 @@ export default function Project({ project }: { project: ProjectEntry }) {
           </h3>
         </div>
         {technology ? (
-          <p className="mb-3 font-mono text-sm text-[var(--muted)]">{technology}</p>
+          <p className="mb-3 font-mono text-sm tracking-wide text-[var(--muted)]">{technology}</p>
         ) : null}
         {description && description.length > 0 ? (
           <ul className="mb-4 ml-4 list-outside list-disc space-y-1 text-sm text-[var(--foreground)]/90">

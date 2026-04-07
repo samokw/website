@@ -10,9 +10,9 @@ export default function Experience() {
       <h1 className="font-display mb-8 text-2xl font-semibold tracking-[-0.02em] text-[var(--foreground)]">
         work experience
       </h1>
-      <div className="mb-12">
+      <div className="mb-12 divide-y divide-[var(--border)]">
         {workExperience.map((experience, index) => (
-          <div key={index} className="mb-8 flex flex-col gap-2">
+          <div key={index} className="flex flex-col gap-2 py-8 first:pt-0 last:pb-0">
             <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between">
               <h2 className="text-lg font-semibold text-[var(--foreground)]">
                 {experience.title}
