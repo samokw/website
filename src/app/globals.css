@@ -3,38 +3,51 @@
 @tailwind utilities;
 
 html {
-  font-family: inherit;
   scroll-behavior: smooth;
-}
-body {
-  font-family: inherit;
-}
-
-::selection {
-  background-color: #e0e0e0;
-  color: #000;
-}
-
-@media (prefers-color-scheme: dark) {
-  ::selection {
-    background-color: #333;
-    color: #fff;
-  }
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #faf9f7;
+  --foreground: #1a1917;
+  --muted: #6b6863;
+  --link: #5c4d3c;
+  --link-underline: rgba(26, 25, 23, 0.22);
+  --border: rgba(26, 25, 23, 0.1);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0c0c0b;
+    --foreground: #e8e6e1;
+    --muted: #9c9890;
+    --link: #c4b8a8;
+    --link-underline: rgba(232, 230, 225, 0.25);
+    --border: rgba(232, 230, 225, 0.1);
   }
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
+  font-family: var(--font-body), "Source Serif 4", ui-serif, Georgia, serif;
+}
+
+.font-body {
+  font-family: var(--font-body), "Source Serif 4", ui-serif, Georgia, serif;
+}
+
+.font-display {
+  font-family: var(--font-display), Fraunces, ui-serif, Georgia, serif;
+}
+
+::selection {
+  background-color: rgba(92, 77, 60, 0.2);
+  color: var(--foreground);
+}
+
+@media (prefers-color-scheme: dark) {
+  ::selection {
+    background-color: rgba(196, 184, 168, 0.25);
+    color: var(--foreground);
+  }
 }

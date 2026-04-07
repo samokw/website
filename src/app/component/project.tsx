@@ -1,29 +1,33 @@
-import { ProjectItem } from "@/types/project";
+import type { ProjectEntry } from "@/content/types";
 
-export default function Project({ project }: { project: ProjectItem }) {
-    return (
-        <li className="group mb-8">
-            <div className="flex flex-col">
-                <div className="flex justify-between items-baseline mb-2">
-                    <h3 className="text-lg font-medium group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                        {project.link ? (
-                            <a href={project.link} target="_blank" rel="noopener noreferrer">
-                                {project.name}
-                            </a>
-                        ) : (
-                            project.name
-                        )}
-                    </h3>
-                </div>
-                <p className="text-sm text-neutral-500 dark:text-neutral-400 mb-3 font-mono">
-                    {project.technology}
-                </p>
-                <ul className="list-disc list-outside ml-4 text-neutral-600 dark:text-neutral-300 text-sm space-y-1 mb-4">
-                    {project.description.map((item, index) => (
-                        <li key={index}>{item}</li>
-                    ))}
-                </ul>
-            </div>
-        </li>
-    );
+export default function Project({ project }: { project: ProjectEntry }) {
+  const { name, url, technology, description } = project;
+
+  return (
+    <li className="group mb-8">
+      <div className="flex flex-col">
+        <div className="mb-2 flex items-baseline justify-between">
+          <h3 className="text-lg font-semibold transition-colors group-hover:text-[var(--link)]">
+            {url ? (
+              <a href={url} target="_blank" rel="noopener noreferrer">
+                {name}
+              </a>
+            ) : (
+              name
+            )}
+          </h3>
+        </div>
+        {technology ? (
+          <p className="mb-3 font-mono text-sm text-[var(--muted)]">{technology}</p>
+        ) : null}
+        {description && description.length > 0 ? (
+          <ul className="mb-4 ml-4 list-outside list-disc space-y-1 text-sm text-[var(--foreground)]/90">
+            {description.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
+          </ul>
+        ) : null}
+      </div>
+    </li>
+  );
 }

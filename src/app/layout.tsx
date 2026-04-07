@@ -1,16 +1,25 @@
 import type { Metadata } from "next";
-import { Lora } from "next/font/google";
+import { Fraunces, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
 import Navbar from "./component/navbar";
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react";
+import { site } from "@/content/site";
 
-const lora = Lora ({
-  subsets: ['latin'],
-  weight: ['700'],
+const display = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-display",
+  axes: ["SOFT", "WONK", "opsz"],
+});
+
+const body = Source_Serif_4({
+  subsets: ["latin"],
+  weight: ["400", "600"],
+  variable: "--font-body",
 });
 
 export const metadata: Metadata = {
-  title: "sam's portfolio",
+  title: site.meta.title,
+  description: site.meta.description,
 };
 
 export default function RootLayout({
@@ -19,15 +28,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${lora.className} antialiased`}>
-      <body className="antialiased text-slate-900 dark:text-slate-100 bg-white dark:bg-slate-950">
-        <div className="flex flex-col md:flex-row min-h-screen">
-          <Navbar/>
-          <main className="flex-auto min-w-0 py-8 md:py-20 px-6 md:px-12">
-            <div className="max-w-3xl">
-              {children}
-              <Analytics/>
-            </div>
+    <html lang="en" className={`${display.variable} ${body.variable}`}>
+      <body className="font-body antialiased text-[var(--foreground)] bg-[var(--background)]">
+        <div className="min-h-screen">
+          <Navbar />
+          <main className="mx-auto max-w-6xl px-6 py-10 md:px-12 md:py-20">
+            {children}
+            <Analytics />
           </main>
         </div>
       </body>

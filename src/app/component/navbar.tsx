@@ -1,79 +1,71 @@
-import Link from "next/link"
+import Link from "next/link";
+import { Fragment } from "react";
+import { site } from "@/content/site";
 
-const navItems = {
-    '/experience': {
-      name: 'experience',
-    },
-    '/resume': {
-      name: 'resume',
-    },
-  }
+type HeaderLink = {
+  key: string;
+  href: string;
+  name: string;
+  external?: boolean;
+};
 
-const socialItems = {
-  'mailto:okwusiunosamuel@gmail.com': {
-    name: 'email',
-  },
-  'https://github.com/samokw': {
-    name: 'github',
-  },
-}
-  
-export default function Navbar (){
-    return (
-      <aside className="md:w-[240px] md:flex-shrink-0 font-serif md:border-r md:border-neutral-200 dark:md:border-neutral-800 md:bg-neutral-50 md:dark:bg-neutral-900/50 md:h-screen md:sticky md:top-0 md:py-20 py-4 px-4 md:px-8">
-        <div>
-          <div className="mb-2 md:mb-8">
-             <Link href="/" className="text-xl font-semibold tracking-tight hover:text-neutral-600 transition-colors block">
-                samuel okwusiuno
-             </Link>
-             <hr className="mt-4 border-neutral-200 dark:border-neutral-800 hidden md:block" />
-          </div>
+export default function Navbar() {
+  const { name, nav, socials } = site;
 
-          <nav
-            className="flex flex-row md:flex-col items-start relative fade md:overflow-auto scroll-pr-6 md:relative"
-            id="nav"
-          >
-            <div className="flex flex-row md:flex-col space-x-0 pr-10 mb-2 mt-2 md:mt-0">
-              {Object.entries(navItems).map(([path, { name }]) => {
-                return name === "resume" ? (
-                  <a
-                    key={path}
-                    href="/Samuel_Software_Resume.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2"
-                  >
-                    {name}
-                  </a>
-                ) : (
-                  <Link
-                    key={path}
-                    href={path}
-                    className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2"
-                  >
-                    {name}
-                  </Link>
-                );
-              })}
-              
-              <div className="hidden md:block mt-8 mb-2 px-2 text-xs font-medium text-neutral-400">
-                Socials
-              </div>
-              
-              {Object.entries(socialItems).map(([path, { name }]) => (
-                 <a
-                 key={path}
-                 href={path}
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2"
-               >
-                 {name}
-               </a>
-              ))}
-            </div>
-          </nav>
-        </div>
-      </aside>
-    )
+  const links: HeaderLink[] = [
+    ...nav.map((item) => ({
+      key: item.href,
+      href: item.href,
+      name: item.name,
+      external: item.external,
+    })),
+    ...socials.map((s) => ({
+      key: s.href,
+      href: s.href,
+      name: s.name,
+      external: true,
+    })),
+  ];
+
+  return (
+    <header className="sticky top-0 z-10 border-b border-[var(--border)] bg-[var(--background)]">
+      <div className="mx-auto flex max-w-6xl flex-col gap-3 px-6 py-4 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6 md:px-12">
+        <Link
+          href="/"
+          className="font-display shrink-0 text-lg font-semibold tracking-tight text-[var(--foreground)] transition-colors hover:text-[var(--link)]"
+        >
+          {name}
+        </Link>
+        <nav
+          className="flex flex-wrap items-center gap-x-1 gap-y-1.5 text-[0.9rem] text-[var(--foreground)]/85 sm:justify-end"
+          id="nav"
+          aria-label="Primary"
+        >
+          {links.map((item, i) => (
+            <Fragment key={item.key}>
+              {i > 0 ? (
+                <span className="px-2 text-[var(--muted)] sm:px-2.5" aria-hidden>
+                  ·
+                </span>
+              ) : null}
+              {item.external ? (
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-[var(--link)]"
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <Link href={item.href} className="transition-colors hover:text-[var(--link)]">
+                  {item.name}
+                </Link>
+              )}
+            </Fragment>
+          ))}
+        </nav>
+      </div>
+    </header>
+  );
 }
