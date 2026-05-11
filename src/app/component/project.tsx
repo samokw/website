@@ -1,33 +1,44 @@
 import type { ProjectEntry } from "@/content/types";
 
 export default function Project({ project }: { project: ProjectEntry }) {
-  const { name, url, technology, description } = project;
+  const { name, url, technology, description, summary } = project;
 
   return (
-    <li className="group mb-8">
-      <div className="flex flex-col">
-        <div className="mb-2 flex items-baseline justify-between">
-          <h3 className="text-lg font-semibold transition-colors group-hover:text-[var(--link)]">
-            {url ? (
-              <a href={url} target="_blank" rel="noopener noreferrer">
-                {name}
-              </a>
-            ) : (
-              name
-            )}
-          </h3>
-        </div>
+    <li>
+      <article>
+        <h3 className="text-[16px] font-normal leading-relaxed text-[var(--foreground)] lowercase">
+          {url ? (
+            <a
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-[var(--muted)]"
+            >
+              {name}
+              <span className="ml-1 text-[12px] text-[var(--soft)]" aria-hidden>
+                ↗
+              </span>
+            </a>
+          ) : (
+            name
+          )}
+        </h3>
+        {summary ? (
+          <p className="mt-1 text-[14px] leading-relaxed text-[var(--soft)] lowercase">{summary}</p>
+        ) : null}
         {technology ? (
-          <p className="mb-3 font-mono text-sm tracking-wide text-[var(--muted)]">{technology}</p>
+          <p className="mt-2 text-[13px] leading-relaxed text-[var(--soft)] lowercase">{technology}</p>
         ) : null}
         {description && description.length > 0 ? (
-          <ul className="mb-4 ml-4 list-outside list-disc space-y-1 text-sm text-[var(--foreground)]/90">
+          <ul className="mt-3 space-y-1.5 text-[14px] leading-relaxed text-[var(--muted)] lowercase">
             {description.map((item, index) => (
-              <li key={index}>{item}</li>
+              <li key={index} className="pl-4 before:-ml-4 before:content-['-'] before:text-[var(--soft)]">
+                <span className="ml-2">{item}</span>
+              </li>
             ))}
           </ul>
         ) : null}
-      </div>
+      </article>
     </li>
   );
 }

@@ -14,17 +14,17 @@ export const site: SiteContent = {
     ],
     portrait: {
       src: "/IMG_7316.jpeg",
-      alt: "Samuel Okwusiuno",
+      alt: "Sunset over water",
       width: 200,
       height: 200,
     },
   },
   currently: [
     {
-      lead: "Software Engineering student at",
+      lead: "recent software engineering graduate from",
       org: "University of Guelph",
       orgUrl: "https://www.uoguelph.ca/",
-      tail: ", graduating April 2026.",
+      tail: ".",
     },
   ],
   previously: [],

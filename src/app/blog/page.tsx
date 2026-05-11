@@ -22,31 +22,31 @@ export default function BlogIndexPage() {
   const posts = getPostPreviews();
 
   return (
-    <div className="mx-auto max-w-2xl">
-    <section className="pb-16">
-      <h1 className="font-display mb-8 text-2xl font-semibold tracking-[-0.02em] text-[var(--foreground)]">
+    <div>
+    <section className="pb-12">
+      <h1 className="mb-8 text-[30px] font-normal leading-tight tracking-[-0.01em] text-[var(--foreground)]">
         blog
       </h1>
 
       {posts.length === 0 ? (
-        <p className="text-[0.95rem] text-[var(--muted)]">Nothing here yet — check back soon.</p>
+        <p className="text-[15px] text-[var(--muted)]">Nothing here yet — check back soon.</p>
       ) : (
-        <ul className="divide-y divide-[var(--border)]">
+        <ul className="space-y-7">
           {posts.map((post) => (
-            <li key={post.slug} className="py-6 first:pt-0 last:pb-0">
+            <li key={post.slug}>
               <Link
                 href={`/blog/${post.slug}`}
-                className="group block font-display text-lg font-semibold text-[var(--foreground)] transition-colors hover:text-[var(--link)]"
+                className="block text-[15px] leading-relaxed text-[var(--muted)] transition-colors hover:text-[var(--foreground)]"
               >
                 {post.title}
               </Link>
               {post.date ? (
-                <p className="mt-1 text-sm tabular-nums text-[var(--muted)]">
+                <p className="mt-1 text-[13px] tabular-nums text-[var(--soft)]">
                   {formatDate(post.date)}
                 </p>
               ) : null}
               {post.description ? (
-                <p className="mt-2 max-w-xl text-[0.95rem] leading-relaxed text-[var(--foreground)]/85">
+                <p className="mt-2 max-w-xl text-[14px] leading-relaxed text-[var(--soft)]">
                   {post.description}
                 </p>
               ) : null}
@@ -54,15 +54,6 @@ export default function BlogIndexPage() {
           ))}
         </ul>
       )}
-
-      <div className="mt-14 border-t border-[var(--border)] pt-6">
-        <Link
-          href="/"
-          className="text-[0.9rem] text-[var(--muted)] underline decoration-[var(--link-underline)] underline-offset-[3px] transition-colors hover:text-[var(--link)]"
-        >
-          ← home
-        </Link>
-      </div>
     </section>
     </div>
   );

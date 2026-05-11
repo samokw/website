@@ -32,7 +32,7 @@ export default function RootLayout({
       <body className="font-body antialiased text-[var(--foreground)] bg-[var(--background)]">
         <div className="min-h-screen">
           <Navbar />
-          <main className="mx-auto max-w-6xl px-6 py-10 md:px-12 md:py-20">
+          <main className="mx-auto max-w-[560px] px-8 py-10 sm:px-6 md:py-12">
             {children}
             <Analytics />
           </main>

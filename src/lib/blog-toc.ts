@@ -24,6 +24,10 @@ export function getTocFromMarkdown(content: string): TocEntry[] {
 }
 
 export function readingTimeMinutes(content: string): number {
-  const words = content.trim().split(/\s+/).filter(Boolean).length;
+  const readable = content
+    .replace(/<svg[\s\S]*?<\/svg>/gi, " ")
+    .replace(/```[\s\S]*?```/g, " ")
+    .replace(/<[^>]+>/g, " ");
+  const words = readable.trim().split(/\s+/).filter(Boolean).length;
   return Math.max(1, Math.round(words / 220));
 }

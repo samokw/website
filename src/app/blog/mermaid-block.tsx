@@ -15,10 +15,23 @@ export function MermaidBlock({ chart }: { chart: string }) {
         const mermaid = (await import("mermaid")).default;
         mermaid.initialize({
           startOnLoad: false,
-          theme: window.matchMedia("(prefers-color-scheme: dark)").matches
-            ? "dark"
-            : "neutral",
+          theme: "dark",
           securityLevel: "loose",
+          themeVariables: {
+            background: "#191918",
+            primaryColor: "#222220",
+            primaryTextColor: "#f1f0ee",
+            primaryBorderColor: "#77736d",
+            lineColor: "#aaa7a2",
+            secondaryColor: "#191918",
+            tertiaryColor: "#191918",
+            fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
+            fontSize: "15px",
+          },
+          flowchart: {
+            nodeSpacing: 28,
+            rankSpacing: 44,
+          },
         });
         const rid = `m-${reactId}-${Math.random().toString(36).slice(2, 9)}`;
         const { svg: out } = await mermaid.render(rid, chart.trim());
@@ -58,7 +71,7 @@ export function MermaidBlock({ chart }: { chart: string }) {
 
   return (
     <div
-      className="not-prose my-8 flex justify-center overflow-x-auto text-[var(--foreground)] [&_svg]:h-auto [&_svg]:max-w-none"
+      className="not-prose my-8 overflow-x-auto rounded-md border border-[var(--border)] bg-[#111110] px-5 py-7 text-[var(--foreground)] [&_svg]:mx-auto [&_svg]:h-auto [&_svg]:min-w-[560px] [&_svg]:max-w-none"
       dangerouslySetInnerHTML={{ __html: svg }}
     />
   );

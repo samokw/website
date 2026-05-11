@@ -7,51 +7,67 @@ html {
 }
 
 :root {
-  --background: #faf9f7;
-  --foreground: #1a1917;
-  --muted: #6b6863;
-  --link: #5c4d3c;
-  --link-underline: rgba(26, 25, 23, 0.22);
-  --border: rgba(26, 25, 23, 0.1);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0c0c0b;
-    --foreground: #e8e6e1;
-    --muted: #9c9890;
-    --link: #c4b8a8;
-    --link-underline: rgba(232, 230, 225, 0.25);
-    --border: rgba(232, 230, 225, 0.1);
-  }
+  --background: #191918;
+  --foreground: #f1f0ee;
+  --muted: #aaa7a2;
+  --soft: #77736d;
+  --link: #f7f4ef;
+  --link-underline: rgba(241, 240, 238, 0.26);
+  --border: rgba(241, 240, 238, 0.1);
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-body), "Source Serif 4", ui-serif, Georgia, serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .font-body {
-  font-family: var(--font-body), "Source Serif 4", ui-serif, Georgia, serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .font-display {
-  font-family: var(--font-display), Fraunces, ui-serif, Georgia, serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 ::selection {
-  background-color: rgba(92, 77, 60, 0.2);
+  background-color: rgba(241, 240, 238, 0.18);
   color: var(--foreground);
-}
-
-@media (prefers-color-scheme: dark) {
-  ::selection {
-    background-color: rgba(196, 184, 168, 0.25);
-    color: var(--foreground);
-  }
 }
 
 a {
   transition: color 150ms ease;
+}
+
+.blog-markdown svg {
+  display: block;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto;
+  margin: 2rem 0;
+  padding: 14px;
+  color-scheme: light;
+  background: #f4f2ee;
+  border: 1px solid rgba(241, 240, 238, 0.16);
+  border-radius: 6px;
+}
+
+.blog-markdown svg,
+.blog-markdown svg * {
+  color-scheme: light !important;
+}
+
+.blog-markdown p:has(> svg) {
+  max-width: none;
+}
+
+.blog-markdown blockquote p::before,
+.blog-markdown blockquote p::after {
+  content: none !important;
+}
+
+@media (max-width: 640px) {
+  .blog-markdown svg {
+    padding: 8px;
+  }
 }

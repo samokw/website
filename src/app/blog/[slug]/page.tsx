@@ -1,4 +1,3 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getPostBySlug, getPublishedSlugs } from "@/lib/blog";
@@ -40,74 +39,43 @@ export default async function BlogPostPage({ params }: Props) {
   const post = getPostBySlug(slug);
   if (!post) notFound();
 
-  const toc = getTocFromMarkdown(post.content);
   const minutes = readingTimeMinutes(post.content);
-  const hasToc = toc.length > 0;
-
-  const articleHeader = (
-    <>
-      <p className="mb-8 text-[0.9rem] text-[var(--muted)] lowercase">
-        <Link
-          href="/blog"
-          className="transition-colors hover:text-[var(--link)]"
-        >
-          &lt; back
-        </Link>
-      </p>
-
-      <header className="mb-8">
-        <h1 className="font-display text-[1.65rem] font-semibold leading-[1.15] tracking-[-0.02em] text-[var(--foreground)] lowercase md:text-[1.85rem]">
-          {post.title}
-        </h1>
-        <p className="mt-4 text-[0.88rem] leading-relaxed text-[var(--muted)] lowercase">
-          <span>{site.name}</span>
-          {post.date ? (
-            <>
-              <span className="mx-2 text-[var(--muted)]/50" aria-hidden>
-                ·
-              </span>
-              <time dateTime={post.date}>{formatDateLong(post.date)}</time>
-            </>
-          ) : null}
-          <span className="mx-2 text-[var(--muted)]/50" aria-hidden>
-            ·
-          </span>
-          <span>{minutes} min read</span>
-        </p>
-        {post.description ? (
-          <p className="mt-5 max-w-xl text-[1rem] leading-relaxed text-[var(--foreground)]/90">
-            {post.description}
-          </p>
-        ) : null}
-      </header>
-
-      <hr className="mb-10 border-[var(--border)]" />
-
-      {hasToc ? (
-        <div className="mb-10 md:hidden">
-          <TableOfContents entries={toc} />
-        </div>
-      ) : null}
-
-      <MarkdownBody content={post.content} />
-    </>
-  );
+  const toc = getTocFromMarkdown(post.content);
 
   return (
-    <article className="pb-16">
-      {hasToc ? (
-        <div className="md:grid md:grid-cols-[1fr_auto_1fr] md:items-start md:gap-x-8 lg:gap-x-12 xl:gap-x-20">
-          <aside className="sticky top-28 hidden w-max max-w-[9.5rem] justify-self-start self-start md:block lg:max-w-[10rem]">
-            <TableOfContents entries={toc} />
-          </aside>
-          <div className="min-w-0 w-full max-w-prose md:col-start-2 md:justify-self-center">
-            {articleHeader}
-          </div>
-          <div className="hidden md:block md:col-start-3" aria-hidden />
-        </div>
+    <div className="pb-14 md:-ml-[206px] md:grid md:w-[766px] md:grid-cols-[150px_minmax(0,560px)] md:items-start md:gap-x-14">
+      {toc.length > 0 ? (
+        <aside className="sticky top-10 hidden pt-[6px] md:block">
+          <TableOfContents entries={toc} />
+        </aside>
       ) : (
-        <div className="mx-auto max-w-prose">{articleHeader}</div>
+        <div className="hidden md:block" aria-hidden />
       )}
-    </article>
+
+      <article className="min-w-0">
+        <header className="mb-9">
+          <h1 className="max-w-[440px] text-[30px] font-normal leading-tight tracking-[-0.01em] text-[var(--foreground)] lowercase">
+            {post.title}
+          </h1>
+          <p className="mt-5 text-[14px] leading-relaxed text-[var(--soft)] lowercase">
+            <span>{site.name}</span>
+            {post.date ? (
+              <>
+                <span className="mx-2 text-[var(--soft)]" aria-hidden>
+                  ·
+                </span>
+                <time dateTime={post.date}>{formatDateLong(post.date)}</time>
+              </>
+            ) : null}
+            <span className="mx-2 text-[var(--soft)]" aria-hidden>
+              ·
+            </span>
+            <span>{minutes} min read</span>
+          </p>
+        </header>
+
+        <MarkdownBody content={post.content} />
+      </article>
+    </div>
   );
 }
