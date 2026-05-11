@@ -7,7 +7,7 @@ export type RoleLine = {
 
 export type ProjectEntry = {
   name: string;
-  url: string;
+  url?: string;
   summary?: string;
   technology?: string;
   image?: string;

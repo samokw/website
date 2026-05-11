@@ -4,7 +4,7 @@ export const site: SiteContent = {
   meta: {
     title: "sam's portfolio",
     description:
-      "Software Engineering student at the University of Guelph. Statistics and cloud infrastructure.",
+      "Recent Software Engineering graduate from the University of Guelph. Statistics and cloud infrastructure.",
   },
   name: "samuel okwusiuno",
   hero: {
@@ -33,15 +33,14 @@ export const site: SiteContent = {
       name: "APEX – Accessibility Scanner with XRPL Escrow",
       url: "https://github.com/samokw/apex",
       summary:
-        "Won $1.5k+ in prizes at NSBE Hacks 2026. Full-stack WCAG/AODA compliance scanner with XRPL escrow payments.",
+        "Full-stack WCAG/AODA accessibility scanner with code-level fix suggestions and XRPL escrow payments.",
       technology:
-        "Next.js, SQLite, Prisma, Playwright, axe-core, XRPL",
+        "Next.js, Prisma, SQLite, Playwright, axe-core, Docker, XRPL, Claude API",
       description: [
-        "Won over $1.5k in prizes, including 2nd place in the Ripple XRP Challenge and 3rd place in the BFN Venture Challenge at NSBE Hacks 2026.",
-        "Built a full-stack accessibility scanning tool that helps teams test websites for WCAG and AODA compliance.",
-        "Automated 36+ accessibility checks using Playwright and axe-core, with a scoring system to rate compliance.",
+        "Built a full-stack accessibility scanning platform that automates 36+ WCAG and AODA compliance checks using Playwright and axe-core, with a scoring system to rate site accessibility.",
+        "Containerized the scanning service with Docker and built a structured Claude API prompt pipeline to parse axe-core violation JSON, classify WCAG failure types, and return actionable code-level fixes ranked by severity.",
         "Added an XRPL escrow flow for scan payments, with automatic payout on success and refunds on timeout.",
-        "Developed the app using Next.js, SQLite, and Prisma, with features to help automate accessibility fixes.",
+        "Won 2nd place in the Ripple XRP Challenge and 3rd place in the BFN Venture Challenge at NSBE Hacks 2026, earning $1.5K+ in prizes.",
       ],
     },
     {
@@ -52,8 +51,21 @@ export const site: SiteContent = {
       technology:
         "AWS Lambda, API Gateway, DynamoDB, S3, Python, React",
       description: [
-        "Built and deployed a serverless web platform on AWS where students can upload and publish web projects to their own public links. Supported zip uploads, automatic file extraction, analytics script injection, and secure S3 uploads using presigned URLs.",
-        "Created an event-driven backend with 5 Lambda functions to handle login, project management, deployment, and basic analytics. Used DynamoDB and S3 to keep the system scalable and low-cost.",
+        "Architected and deployed a serverless platform on AWS where students can publish web projects to unique S3 static-hosted URLs using presigned uploads and ZIP extraction.",
+        "Built an event-driven backend with 5 Lambda functions for authentication, project CRUD, deployment pipelines, and lightweight analytics, using DynamoDB and S3 for scalable low-cost infrastructure.",
+      ],
+    },
+    {
+      name: "Housing Index",
+      url: "https://metropolitan.foundre.app",
+      summary:
+        "Full-stack analytics platform for Toronto and Hamilton housing and labour market data.",
+      technology: "Spring Boot, React, TypeScript, Python, MariaDB, Docker",
+      description: [
+        "Built a full-stack analytics platform with Spring Boot, React, TypeScript, and MariaDB to aggregate, query, and visualize housing and labour market datasets for Toronto and Hamilton.",
+        "Developed Python ETL pipelines to collect, transform, and load Statistics Canada housing starts, labour force microdata, and annual labour force rates into a relational database.",
+        "Eliminated 225,977 redundant SQL round-trips by replacing per-row inserts with batched bulk writes, reducing ETL load time from 8+ minutes to about 2 seconds for 113,001 labour records.",
+        "Deployed to a VPS using Docker Compose, GitHub Actions, and Caddy, with Prometheus, Grafana, alerting, and external uptime monitoring.",
       ],
     },
     {
@@ -127,15 +139,15 @@ export const site: SiteContent = {
       location: "Brampton, ON",
       date: "June 2023 – Present",
       responsibilities: [
-        "Taught students from grades 1–12 fundamental concepts of engineering, computer science, coding, and robotics, fostering their interest in STEM fields.",
-        "Developed interactive coding challenges and age-appropriate analogies, enhancing students’ understanding of Object-Oriented Programming and memory allocation.",
-        "Delivered structured courses in programming languages such as C, Python, Java, JavaScript, and HTML/CSS.",
+        "Designed and delivered hands-on programming curriculum in C, Python, Java, JavaScript, and HTML/CSS for 30 students across camps, focusing on applied web development, robotics, and algorithmic practice.",
+        "Facilitated interactive technical workshops for 150+ students covering AI fundamentals, programming, and robotics through live demos, debugging sessions, and hands-on coding activities.",
       ],
       image: "/zebra.webp",
     },
   ],
   socials: [
     { name: "email", href: "mailto:okwusiunosamuel@gmail.com" },
+    { name: "linkedin", href: "https://www.linkedin.com/in/chibuzor-okwusiuno/" },
     { name: "github", href: "https://github.com/samokw" },
   ],
   nav: [

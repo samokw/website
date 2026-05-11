@@ -41,7 +41,7 @@ export default function Experience() {
       </h2>
       <ul className="space-y-10 lowercase">
         {projects.map((project, index) => (
-          <Project key={project.url + String(index)} project={project} />
+          <Project key={(project.url ?? project.name) + String(index)} project={project} />
         ))}
       </ul>
     </section>

@@ -42,31 +42,31 @@ function ExternalArrow() {
 }
 
 function SocialIcon({ name }: { name: string }) {
-  if (name === "github") {
+  if (name === "email") {
     return (
-      <svg aria-hidden="true" className="size-[18px]" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.09.68-.22.68-.49 0-.24-.01-.88-.01-1.73-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.36 9.36 0 0 1 12 6.99c.85 0 1.7.12 2.5.35 1.9-1.33 2.74-1.05 2.74-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.8 0 .27.18.59.69.49A10.12 10.12 0 0 0 22 12.25C22 6.58 17.52 2 12 2Z" />
+      <svg aria-hidden="true" className="size-[20px]" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z" />
       </svg>
     );
   }
 
-  return (
-    <svg aria-hidden="true" className="size-[18px]" viewBox="0 0 24 24" fill="none">
-      <path
-        d="M4.75 6.75h14.5v10.5H4.75V6.75Z"
-        stroke="currentColor"
-        strokeWidth="1.7"
-        strokeLinejoin="round"
-      />
-      <path
-        d="m5.25 7.25 6.75 5.5 6.75-5.5"
-        stroke="currentColor"
-        strokeWidth="1.7"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
+  if (name === "linkedin") {
+    return (
+      <svg aria-hidden="true" className="size-[19px]" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M19 3c.53 0 1.04.21 1.41.59.38.37.59.88.59 1.41v14c0 .53-.21 1.04-.59 1.41-.37.38-.88.59-1.41.59H5c-.53 0-1.04-.21-1.41-.59C3.21 20.04 3 19.53 3 19V5c0-.53.21-1.04.59-1.41C3.96 3.21 4.47 3 5 3h14Zm-.5 15.5v-5.3c0-.86-.34-1.69-.95-2.31a3.26 3.26 0 0 0-2.31-.95c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4.37 0 .73.15.99.41.26.26.41.62.41.99v4.93h2.79ZM6.88 8.56c.45 0 .87-.18 1.19-.49.31-.32.49-.74.49-1.19 0-.93-.75-1.69-1.68-1.69-.45 0-.88.18-1.2.49-.31.32-.49.75-.49 1.2 0 .93.76 1.68 1.69 1.68Zm1.39 9.94v-8.37H5.5v8.37h2.77Z" />
+      </svg>
+    );
+  }
+
+  if (name === "github") {
+    return (
+      <svg aria-hidden="true" className="size-[19px]" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02A9.34 9.34 0 0 1 12 6.84c.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12c0-5.52-4.48-10-10-10Z" />
+      </svg>
+    );
+  }
+
+  return null;
 }
 
 export default function Home() {
@@ -125,16 +125,20 @@ export default function Home() {
       <SectionLabel>projects</SectionLabel>
       <ul className="space-y-3 text-[15px] lowercase">
         {projects.map((p) => (
-          <li key={p.url}>
-            <a
-              href={p.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[var(--muted)] transition-colors hover:text-[var(--foreground)]"
-            >
-              {p.name}
-              <ExternalArrow />
-            </a>
+          <li key={p.url ?? p.name}>
+            {p.url ? (
+              <a
+                href={p.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[var(--muted)] transition-colors hover:text-[var(--foreground)]"
+              >
+                {p.name}
+                <ExternalArrow />
+              </a>
+            ) : (
+              <span className="text-[var(--muted)]">{p.name}</span>
+            )}
           </li>
         ))}
       </ul>
